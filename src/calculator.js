@@ -1,7 +1,7 @@
-const yargs = require('yargs');
-
-
 result = (varA, varB, equation) => {
+    if (equation == null) {
+        throw new Error('Not exist equation with NUL value');
+    }
     var value = 0;
     switch (equation.toLowerCase()) {
         case 'add':

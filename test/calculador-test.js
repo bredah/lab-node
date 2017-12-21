@@ -1,46 +1,43 @@
-var assert = require('assert');
 var calculator = require('../src/calculator');
+var assert = require('chai').assert
+var expect = require('chai').expect
+
 
 describe('Calculator', function() {
 
     it('Add', function() {
-        var value = calculator.result(4, 2, 'add');
-        assert.equal(value, 6);
+        var result = calculator.result(4, 2, 'add');
+        expect(result).to.equal(6);
     });
 
     it('Subtract', function() {
-        var value = calculator.result(4, 2, 'subtract');
-        assert.equal(value, 2);
+        var result = calculator.result(4, 2, 'subtract');
+        expect(result).to.equal(2);
     });
 
     it('Multiply', function() {
-        var value = calculator.result(4, 2, 'multiply');
-        assert.equal(value, 8);
+        var result = calculator.result(4, 2, 'multiply');
+        expect(result).to.equal(8);
     });
 
     it('Divide', function() {
-        var value = calculator.result(4, 2, 'divide');
-        assert.equal(value, 2);
+        var result = calculator.result(4, 2, 'divide');
+        expect(result).to.equal(2);
     });
 });
 
 describe('Calculator Exception', function() {
 
     it('Equation void', function() {
-        var value = calculator.result(4, 2, '');
-        assert.equal(value, 6);
+        var result = calculator.result(4, 2, '');
+        expect(result).to.equal(0);
     });
 
-    it('Subtract', function() {
-        var value = calculator.result(4, 2, null);
-        assert.equal(value, 2);
+    it('Equation null', function() {
+        assert.throws(() => calculator.result(4, 2, null), Error);
     });
 
     it('Divide by zero', function() {
-        (function() {
-            assert.throws(calculator.result(4, 0, 'divide'));
-        }).should.throw()
+        assert.throws(() => calculator.result(4, 0, 'divide'), Error);
     });
-
-
 });
