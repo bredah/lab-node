@@ -4,7 +4,8 @@
     "description": "Lab example",
     "main": "app.js",
     "scripts": {
-        "test": "mocha",
+        "test": "mocha --recursive test/",
+        "test-junit": "mocha --recursive -R xunit test/ > report.xml",
         "test-fun": "mocha -R nyan",
         "coverage": "nyc --report=text --report=html mocha"
     },

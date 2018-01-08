@@ -1,7 +1,6 @@
-var calculator = require('../src/calculator');
+var calculator = require('../../src/example/calculator');
 var assert = require('chai').assert
 var expect = require('chai').expect
-
 
 describe('Calculator', function() {
 
